@@ -1,0 +1,56 @@
+<html>
+	<title>Doorlock</title>
+	<style>
+			 table{
+			 	margin:auto;
+			 }
+          ul{
+             list-style:none;
+             text-align:center;
+             padding-left:0;
+          }
+          li{
+             list-style:none;
+             display:inline-block;
+          }
+    </style>
+    <body>
+       <br>
+       <div class="container">
+          <header class="d-flex justify-content-center py-3">
+          <ul class="nav">
+          	 <li class="nav-item"><input type="button" value="Home" style="font-size:15px;border-radius:20px" onclick="location.href='/Home'"></li>
+             <li class="nav-item"><input type="button" value="TEMP/HUMI" style="font-size:15px;border-radius:20px" onclick="location.href='/TEMP'"></li>
+             <li class="nav-item"><input type="button" value="Doorlock" style="font-size:15px;border-radius:20px" onclick="location.href='/Doorlock'"></li>
+             <li class="nav-item"><input type="button" value="Login List" style="font-size:15px;border-radius:20px" id="Login" onclick="location.href='/LoginList'"></li>
+             <li class="nav-item"><form action="/" method="post"><input type="submit" value="Logout" style="font-size:15px;border-radius:20px" name"submit"></form></li>
+          </ul>
+       </div>
+       <script>
+          if("{{name}}" != "admin"){
+                document.getElementById("Login").style.visibility='hidden'
+             }
+       </script>
+       <br>
+       <br>
+       <br>
+       <center><img src="https://cdn-icons-png.flaticon.com/512/488/488744.png" width="200" height="200"></center>
+		 <br>
+		 <div>
+			<table border="1">
+			<tr>
+			<td><center>PW</center></td>
+			<td><center>상태</center></td>
+			<td><center>일시</center></td>
+			</tr>
+			{% for value in rows %}
+			<tr>
+			<td>{{value[0]}}</td>
+			<td><center>{{value[1]}}</center></td>
+			<td>{{value[2]}}</td>
+			</tr>
+			{% endfor %}
+			</table>
+		 </div>
+	 </body>
+</html>

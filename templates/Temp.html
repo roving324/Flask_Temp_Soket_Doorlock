@@ -1,0 +1,53 @@
+<html>
+	<title>Temp</title>
+	<style>
+		table{
+			margin:auto;
+		}
+      ul{
+         list-style:none;
+         text-align:center;
+         padding-left:0;
+      }
+      li{
+         list-style:none;
+         display:inline-block;
+      }
+    </style>
+    <body>
+       <br>
+       <div class="container">
+          <header class="d-flex justify-content-center py-3">
+          <ul class="nav">
+             <li class="nav-item"><input type="button" value="Home" style="font-size:15px;border-radius:20px" onclick="location.href='/Home'"></li>
+             <li class="nav-item"><input type="button" value="TEMP/HUMI" style="font-size:15px;border-radius:20px" onclick="location.href='/TEMP'"></li>
+             <li class="nav-item"><input type="button" value="Doorlock" style="font-size:15px;border-radius:20px" onclick="location.href='/Doorlock'"></li>
+             <li class="nav-item"><input type="button" value="Login List" style="font-size:15px;border-radius:20px" id="Login" onclick="location.href='/LoginList'"></li>
+             <li class="nav-item"><form action="/" method="post"><input type="submit" value="Logout" style="font-size:15px;border-radius:20px" name="submit"></form></li>
+          </ul>
+       </div>
+       <script>
+          if("{{name}}" != "admin"){
+                document.getElementById("Login").style.visibility='hidden'
+             }
+       </script>
+       <center><img src="https://img.freepik.com/premium-vector/thermometer-icon-or-temperature-symbol-or-emblem-vector-and-illustration_231786-4661.jpg" width="250" height="200"></center>
+		 <div>
+			<table border="1">
+				<tr>
+				<td><center>온도</center></td>
+				<td><center>습도</center></td>
+				<td><center>일시</center></td>
+				</tr>
+				{% for value in rows %}
+				<tr> 
+				<td>&nbsp;{{value[0]}}&nbsp;</td>
+				<td>&nbsp;{{value[1]}}&nbsp;</td>
+				<td>&nbsp;{{value[2]}}&nbsp;</td>
+				</tr>
+				{% endfor %}
+			</table>
+		 </div>
+	 </body>
+	
+</html>

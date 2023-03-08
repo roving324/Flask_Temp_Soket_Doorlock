@@ -1,0 +1,44 @@
+<html>
+	<title>Create</title>
+	<style>
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			}
+	</style>
+	<body>
+		<div>
+			<center><img src="https://cdn.pixabay.com/photo/2012/04/26/19/44/members-42919_960_720.png" width="250" height="200"></center><br>
+			<table>
+			<form action="/" method="post">
+			<tr>
+			<td>아이디</td><td>:</td>
+			<td><input type="text" id="id" name="id" required></td>
+			</tr>
+			<tr>
+			<td>패스워드</td><td>:</td>
+			<td><input type="password" id="pw" name="pw" minlength="4" required></td>
+			</tr>
+			<tr>
+			<td>이름</td><td>:&nbsp;</td>
+			<td><input type="text" id="name" name="name" required></td>
+			</table>
+			<br>
+			<div style="float:right;display:flex">
+			<input type="submit" name="submit" style="font-size:13px;height:30px" value="생성">
+			</form>
+			<p>&nbsp;</p>
+			<form action="/" method="post">
+			<input type="submit" name="submit" style="font-size:13px;height:30px" value="취소">
+			</form>
+			</div>
+		</div>
+
+		<script>
+			if({{num}} == "1"){
+				alert("이미 존재하는 아이디입니다.")
+				}
+		</script>
+	</body>
+</html>

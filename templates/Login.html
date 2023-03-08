@@ -1,0 +1,44 @@
+<html>
+	<title>Login</title>
+	<style>
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			}
+	</style>
+	<body>
+		<div>
+		<center><img src="https://blog.kakaocdn.net/dn/PPTU5/btqQfL0H1rI/aYLkahJpk3GUcVAOU1iOoK/img.jpg" width="170" height="180"></center><br>
+		<table>
+		<form action="/" method="post">
+		<tr>
+		<td>아이디</td><td>:</td>
+		<td><input type="text" id = "id" placeholder="id" name = "id" style="height:30px" required></td>
+		</tr>
+		<tr>
+		<td>패스워드</td><td>:&nbsp;</td>
+		<td><input type="password" id = "pw" placeholder="password" name = "pw"  minlength="4" style="height:30px" required></td>
+		</tr>
+		</table>
+		<br>
+		<div style="float:right;display:flex">
+		<input type="submit" name="submit" style="font-size:13px;height:30px" value="로그인">
+		</form>
+		<p>&nbsp;</p>
+		<form action="/Create" method="post">
+		<input type="submit" style="font-size:13px;height:30px" value="회원가입">
+		</form>
+		</div>
+		</div>
+		<br>
+			<div>
+				<script>
+					if("{{num}}" == "0"){
+						alert('아이디와 비밀번호가 틀립니다.')
+						}
+				</script>
+		</div>
+	</body>
+	
+</html>

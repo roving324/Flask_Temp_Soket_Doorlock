@@ -100,9 +100,17 @@ def Home():
 @app.route('/TEMP', methods=['GET','POST'])
 def Temp():
 	global nm
-	sql = "SELECT * FROM Tmp ORDER BY day desc LIMIT 20"
+	sql = "SELECT Temp,Humi,date FROM Tmp ORDER BY date desc LIMIT 1"
 	rows = Mysql(sql)
-	return render_template("Temp.html",rows = rows,name = nm)
+	sql = "SELECT day FROM Tmp GROUP BY day ORDER BY day desc"
+	day = Mysql(sql)
+	rowList = ()
+	for i in day:
+		sql = "SELECT Temp,Humi,date FROM Tmp WHERE day = %s ORDER BY date desc LIMIT 1"
+		if len(rowList) > 10:
+			contiue;
+		rowList += Mysql(sql,"s",i)
+	return render_template("Temp.html",rows = rows,rowList = rowList,name = nm)
 
 @app.route('/Doorlock', methods=['GET'])
 def Doorlock():

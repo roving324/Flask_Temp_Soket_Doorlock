@@ -47,6 +47,22 @@
 				</tr>
 				{% endfor %}
 			</table>
+			<br>
+			<table border="1">
+            <tr>
+            <td><center>온도</center></td>
+            <td><center>습도</center></td>
+            <td><center>일시</center></td>
+            </tr>
+            {% for value in rowList %}
+            <tr>
+            <td>&nbsp;{{value[0]}}&nbsp;</td>
+            <td>&nbsp;{{value[1]}}&nbsp;</td>
+            <td>&nbsp;{{value[2]}}&nbsp;</td>
+            </tr>
+            {% endfor %}
+          </table>
+
 		 </div>
 	 </body>
 	

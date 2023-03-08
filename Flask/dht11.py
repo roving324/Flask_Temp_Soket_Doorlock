@@ -14,9 +14,10 @@ try:
 		if humi is not None and temp is not None:
 			now = datetime.now()
 			current_time = now.strftime("%Y-%m-%d %H:%M:%S")
-			print("Temp=%.1fC Humi=%.1f%% Day=%s" % (temp, humi,current_time))
-			sql = "INSERT INTO Tmp (Temp,Humi,Day) VALUES(%s,%s,%s)"
-			db_connected.execute(sql,('%.1fC' % temp,'%.1f%%' % humi,current_time))
+			day_time = now.strftime("%Y-%m-%d")
+			print("Temp=%.1fC Humi=%.1f%% Date=%s" % (temp, humi,current_time))
+			sql = "INSERT INTO Tmp (Temp,Humi,date,day) VALUES(%s,%s,%s,%s)"
+			db_connected.execute(sql,('%.1fC' % temp,'%.1f%%' % humi,current_time,day_time))
 			db_connect.commit()
 		time.sleep(1)
 except KeyboardInterrupt:

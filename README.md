@@ -28,9 +28,9 @@ if("{{name}}" != "admin"){
 ```
 
 ## TEMP
-```
-
+	
 ### Temp 현재,일자별 데이터 조회
+```
 @app.route('/TEMP', methods=['GET','POST'])
   def Temp():
 	name = idread()

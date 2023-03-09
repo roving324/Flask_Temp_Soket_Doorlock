@@ -8,6 +8,19 @@
 <img src="https://github.com/roving324/Flask_Temp_Soket_Doorlock/blob/main/Flask/img/LoginList.PNG">
 
 ## 관리자 전용 로그인 기록 확인
+### Python
+```
+def LoginList():
+ name = idread()
+ if name == "Fail":
+ 	return render_template("Login.html")
+ elif name != "admin":
+ 	return render_template("Home.html",name = name)
+ sql = "SELECT * FROM LoginList ORDER BY date desc LIMIT 20"
+ rows = Mysql(sql)
+ return render_template("LoginList.html",rows = rows,name = name)
+```
+### Html<script>
 ```
 if("{{name}}" != "admin"){
   document.getElementById("Login").style.visibility='hidden'

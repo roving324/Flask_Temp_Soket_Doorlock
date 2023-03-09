@@ -20,7 +20,7 @@ def LoginList():
  rows = Mysql(sql)
  return render_template("LoginList.html",rows = rows,name = name)
 ```
-### Html<script>
+### Html <script>
 ```
 if("{{name}}" != "admin"){
   document.getElementById("Login").style.visibility='hidden'

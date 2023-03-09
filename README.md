@@ -7,12 +7,14 @@
 <img src="https://github.com/roving324/Flask_Temp_Soket_Doorlock/blob/main/Flask/img/Doorlock.PNG">
 <img src="https://github.com/roving324/Flask_Temp_Soket_Doorlock/blob/main/Flask/img/LoginList.PNG">
 
+## 관리자 전용 로그인기록 확인
 ```
 if("{{name}}" != "admin"){
   document.getElementById("Login").style.visibility='hidden'
 }
 ```
 
+## Flask 변수 html에 테이블로 표현
 ```
 <table border="1">
   <tr>
@@ -30,11 +32,13 @@ if("{{name}}" != "admin"){
 </table>
 ```
 
+## PW 최소글자 수, 필수 입력
 ```
 <td>패스워드</td><td>:</td>
 <td><input type="password" id="pw" name="pw" minlength="4" required></td>
 ```
 
+## body 화면 중앙 배치
 ```
 body{
  display: flex;
@@ -43,6 +47,7 @@ body{
  }
 ```
 
+## ID 확인
 ```
 name = idread()
   if name == "Fail":
@@ -51,6 +56,7 @@ name = idread()
     return render_template("Home.html",name = name)
 ```
 
+## TEMP
 ```
 @app.route('/TEMP', methods=['GET','POST'])
   def Temp():

@@ -94,6 +94,8 @@ try:
 		name = idread()
 		if name == "Fail":
 			return render_template("Login.html")
+		elif name != "admin":
+			return render_template("Home.html",name = name)
 		sql = "SELECT * FROM LoginList ORDER BY date desc LIMIT 20"
 		rows = Mysql(sql)
 		return render_template("LoginList.html",rows = rows,name = name)

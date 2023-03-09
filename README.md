@@ -27,6 +27,26 @@ if("{{name}}" != "admin"){
 }
 ```
 
+## TEMP
+```
+@app.route('/TEMP', methods=['GET','POST'])
+  def Temp():
+	name = idread()
+	if name == "Fail":
+		return render_template("Login.html")
+	sql = "SELECT Temp,Humi,date FROM Tmp ORDER BY date desc LIMIT 1"
+	rows = Mysql(sql)
+	sql = "SELECT day FROM Tmp GROUP BY day ORDER BY day desc"
+	day = Mysql(sql)
+	rowList = ()
+	for i in day:
+		sql = "SELECT Temp,Humi,date FROM Tmp WHERE day = %s ORDER BY date desc LIMIT 1"
+		if len(rowList) > 10:
+			contiue;
+		rowList += Mysql(sql,"s",i)
+	return render_template("Temp.html",rows = rows,rowList = rowList,name = name)
+```
+
 ## Flask 변수 html에 테이블로 표현
 ```
 <table border="1">
@@ -67,24 +87,4 @@ name = idread()
     return render_template("Login.html")
   else:
     return render_template("Home.html",name = name)
-```
-
-## TEMP
-```
-@app.route('/TEMP', methods=['GET','POST'])
-  def Temp():
-	name = idread()
-	if name == "Fail":
-		return render_template("Login.html")
-	sql = "SELECT Temp,Humi,date FROM Tmp ORDER BY date desc LIMIT 1"
-	rows = Mysql(sql)
-	sql = "SELECT day FROM Tmp GROUP BY day ORDER BY day desc"
-	day = Mysql(sql)
-	rowList = ()
-	for i in day:
-		sql = "SELECT Temp,Humi,date FROM Tmp WHERE day = %s ORDER BY date desc LIMIT 1"
-		if len(rowList) > 10:
-			contiue;
-		rowList += Mysql(sql,"s",i)
-	return render_template("Temp.html",rows = rows,rowList = rowList,name = name)
 ```

@@ -7,7 +7,7 @@
 <img src="https://github.com/roving324/Flask_Temp_Soket_Doorlock/blob/main/Flask/img/Doorlock.PNG">
 <img src="https://github.com/roving324/Flask_Temp_Soket_Doorlock/blob/main/Flask/img/LoginList.PNG">
 
-## 관리자 전용 로그인기록 확인
+## 관리자 전용 로그인 기록 확인
 ```
 if("{{name}}" != "admin"){
   document.getElementById("Login").style.visibility='hidden'

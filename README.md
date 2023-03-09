@@ -29,6 +29,8 @@ if("{{name}}" != "admin"){
 
 ## TEMP
 ```
+
+### Temp 현재,일자별 데이터 조회
 @app.route('/TEMP', methods=['GET','POST'])
   def Temp():
 	name = idread()
@@ -47,7 +49,7 @@ if("{{name}}" != "admin"){
 	return render_template("Temp.html",rows = rows,rowList = rowList,name = name)
 ```
 
-## Flask 변수 html에 테이블로 표현
+### Flask 변수 html에 테이블로 표현
 ```
 <table border="1">
   <tr>

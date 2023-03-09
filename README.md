@@ -90,3 +90,11 @@ name = idread()
   else:
     return render_template("Home.html",name = name)
 ```
+
+## 도어락 데이터 기록 및 아두이노 연결
+```
+import serial
+ser = serial.Serial("/dev/ttyACM0",9600)
+sr = ser.readline()
+PW += sr.decode()[:1]
+```

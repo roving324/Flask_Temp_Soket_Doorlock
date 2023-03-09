@@ -82,6 +82,24 @@ body{
  }
 ```
 
+## ID 생성
+```
+request.form["submit"] == "생성":
+ id = request.form["id"]
+ pw = request.form["pw"]
+ name = request.form["name"]
+ sql = "SELECT id FROM user WHERE id = %s"
+ count = Mysql(sql,"s",id)
+ if len(count) == 1:
+ 	return render_template("Create.html",num = "1")
+ sql = "INSERT INTO user(id,pw,name,date) values(%s,%s,%s,%s)"
+ val = (id,pw,name,date)
+ Mysql(sql,"i",val)
+ name = idread()
+ if name == "Fail":
+ 	return render_template("Login.html")
+```
+	
 ## ID 확인
 ```
 name = idread()

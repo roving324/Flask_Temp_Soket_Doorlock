@@ -9,7 +9,7 @@
 
 ```
 if("{{name}}" != "admin"){
-	document.getElementById("Login").style.visibility='hidden'
+  document.getElementById("Login").style.visibility='hidden'
 }
 ```
 
